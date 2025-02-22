@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Betting Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Betting Calculator</h1>
+      <form id="bettingForm">
+        <div class="form-group">
+          <label for="winOdds">Win Odds:</label>
+          <input type="number" id="winOdds" step="0.01" required />
+        </div>
+        <div class="form-group">
+          <label for="drawOdds">Draw Odds:</label>
+          <input type="number" id="drawOdds" step="0.01" required />
+        </div>
+        <div class="form-group">
+          <label for="lossOdds">Loss Odds:</label>
+          <input type="number" id="lossOdds" step="0.01" required />
+        </div>
+        <div class="form-group">
+          <label for="totalAmount">Total Amount (₹):</label>
+          <input type="number" id="totalAmount" required />
+        </div>
+        <div class="form-group">
+          <label for="riskLevel">Risk Level:</label>
+          <select id="riskLevel" required>
+            <option value="low">Low Risk</option>
+            <option value="medium">Medium Risk</option>
+            <option value="high">High Risk</option>
+            <option value="minimize">Minimize Loss</option>
+          </select>
+        </div>
+        <button type="submit">Calculate</button>
+      </form>
+      <div id="results" class="hidden">
+        <h2>Recommended Bets:</h2>
+        <p>Win Amount: ₹<span id="winAmount">0</span></p>
+        <p>Draw Amount: ₹<span id="drawAmount">0</span></p>
+        <p>Loss Amount: ₹<span id="lossAmount">0</span></p>
+        <p>Potential Return: ₹<span id="potentialReturn">0</span></p>
+      </div>
+      <div id="scenarios" class="hidden">
+        <h2>Potential Scenarios</h2>
+        <div class="scenario-container">
+          <div class="scenario">
+            <h3>If Win</h3>
+            <p>Bet Amount: ₹<span id="winBetAmount">0</span></p>
+            <p>Return: ₹<span id="winScenarioReturn">0</span></p>
+            <p>Net Profit/Loss: ₹<span id="winScenarioProfit">0</span></p>
+          </div>
+          <div class="scenario">
+            <h3>If Draw</h3>
+            <p>Bet Amount: ₹<span id="drawBetAmount">0</span></p>
+            <p>Return: ₹<span id="drawScenarioReturn">0</span></p>
+            <p>Net Profit/Loss: ₹<span id="drawScenarioProfit">0</span></p>
+          </div>
+          <div class="scenario">
+            <h3>If Loss</h3>
+            <p>Bet Amount: ₹<span id="lossBetAmount">0</span></p>
+            <p>Return: ₹<span id="lossScenarioReturn">0</span></p>
+            <p>Net Profit/Loss: ₹<span id="lossScenarioProfit">0</span></p>
+          </div>
+        </div>
+      </div>
+      <div id="customBetting" class="form-section">
+        <h2>Custom Betting Calculator</h2>
+        <div class="custom-bet-container">
+          <div class="custom-bet">
+            <label for="customWinBet">Win Bet Amount:</label>
+            <input type="number" id="customWinBet" placeholder="Enter amount" />
+          </div>
+          <div class="custom-bet">
+            <label for="customDrawBet">Draw Bet Amount:</label>
+            <input
+              type="number"
+              id="customDrawBet"
+              placeholder="Enter amount"
+            />
+          </div>
+          <div class="custom-bet">
+            <label for="customLossBet">Loss Bet Amount:</label>
+            <input
+              type="number"
+              id="customLossBet"
+              placeholder="Enter amount"
+            />
+          </div>
+        </div>
+        <button type="button" id="calculateCustom">
+          Calculate Custom Bets
+        </button>
+        <div id="customResults" class="hidden">
+          <h3>Custom Betting Results</h3>
+          <div class="scenario-container">
+            <div class="scenario">
+              <h4>If Win</h4>
+              <p>Return: ₹<span id="customWinReturn">0</span></p>
+              <p>Net P/L: ₹<span id="customWinProfit">0</span></p>
+            </div>
+            <div class="scenario">
+              <h4>If Draw</h4>
+              <p>Return: ₹<span id="customDrawReturn">0</span></p>
+              <p>Net P/L: ₹<span id="customDrawProfit">0</span></p>
+            </div>
+            <div class="scenario">
+              <h4>If Loss</h4>
+              <p>Return: ₹<span id="customLossReturn">0</span></p>
+              <p>Net P/L: ₹<span id="customLossProfit">0</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
